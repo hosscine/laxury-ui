@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="black"
       dark
     >
       <div class="d-flex align-center">
@@ -12,22 +12,22 @@
           contain
           src="https://pbs.twimg.com/profile_images/938212111615893504/CWOlo6Q6_400x400.jpg"
           transition="scale-transition"
-          width="40"
+          width="60"
         />
 
         <h1>Laxury Insight</h1>
       </div>
 
-      <!-- <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
 
       <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        href="https://myluxurycard.co.jp"
         target="_blank"
         text
       >
-        <span class="mr-2">Latest Release</span>
+        <span class="mr-2">Laxury Card Online</span>
         <v-icon>mdi-open-in-new</v-icon>
-      </v-btn> -->
+      </v-btn>
     </v-app-bar>
 
     <v-content>
