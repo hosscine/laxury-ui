@@ -8,7 +8,6 @@
           v-bind:items="billShared"
           sort-by="amount"
           class="elevation-1"
-          icons="mdi-arrow-right"
         >
           <template v-slot:top></template>
         </RemovableTable>
@@ -59,7 +58,8 @@ export default {
         name: "Ice cream sandwich",
         amount: 237,
         date: 37,
-        shared: true
+        shared: true,
+        added: true
       },
       {
         name: "Eclair",
@@ -77,7 +77,8 @@ export default {
         name: "Gingerbread",
         amount: 356,
         date: 49,
-        shared: true
+        shared: true,
+        added: true
       },
       {
         name: "Jelly bean",
@@ -112,15 +113,19 @@ export default {
     ]
   }),
 
+  created() {
+    this.bill.forEach((item, index) => {
+      if (item.added) this.$set(this.bill[index], "icon", "mdi-delete")
+      else this.$set(this.bill[index], "icon", item.shared ? "mdi-arrow-right" : "mdi-arrow-left")
+    })
+  },
+
   computed: {
     billShared() {
-      return this.bill.filter(item => item.shared);
+      return this.bill.filter(item => item.shared)
     },
     billUnshared() {
-      return this.bill.filter(item => !item.shared);
-    },
-    computedIcons() {
-      return ["mdi-arrow-left", "mdi-arrow-left", "mdi-arrow-left", "mdi-delete", "mdi-arrow-left"]
+      return this.bill.filter(item => !item.shared)
     }
   },
 

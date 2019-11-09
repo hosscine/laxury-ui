@@ -4,8 +4,8 @@
       <v-slot name="top"></v-slot>
     </template>
 
-    <template v-slot:item.action="{ item }">      
-      <v-icon class="pl-2">{{icons}}</v-icon>
+    <template v-slot:item.action="{ item }">
+      <v-icon class="pl-2">{{item.icon}}</v-icon>
     </template>
   </v-data-table>
 </template>
@@ -15,8 +15,7 @@
 export default {
   props: {
     headers: Array,
-    items: Array,
-    icons: String
+    items: Array
   },
   data: () => ({
     dialog: false,
@@ -48,10 +47,6 @@ export default {
     dialog(val) {
       val || this.close();
     }
-  },
-
-  created() {
-    this.initialize();
   },
 
   methods: {
