@@ -1,25 +1,23 @@
 <template>
-  <v-container>
-    <h1>インサイト画面</h1>
+  <v-container class="pb-0">
+    <v-app-bar class="pa-0 elevation-2" dense>
+      <v-row>
+        <v-col sm="4" md="6">
+          <v-select class="pt-5" prepend-inner-icon="mdi-calendar-month"></v-select>
+        </v-col>
+        <v-col>
+
+        </v-col>
+      </v-row>
+    </v-app-bar>
     <v-row>
-      <v-col class="pr-0">
-        <RemovableTable
-          v-bind:headers="headers"
-          v-bind:items="billShared"
-          sort-by="amount"
-          class="elevation-1"
-        >
+      <v-col class="pr-0 pt-0">
+        <RemovableTable v-bind:headers="headers" v-bind:items="billShared" sort-by="amount">
           <template v-slot:top></template>
         </RemovableTable>
       </v-col>
-      <v-col class="pl-0">
-        <RemovableTable
-          v-bind:headers="headers"
-          v-bind:items="billUnshared"
-          sort-by="amount"
-          class="elevation-1"
-          icons="mdi-arrow-left"
-        >
+      <v-col class="pl-0 pt-0">
+        <RemovableTable v-bind:headers="headers" v-bind:items="billUnshared" sort-by="amount">
           <template v-slot:top></template>
         </RemovableTable>
       </v-col>
@@ -115,17 +113,22 @@ export default {
 
   created() {
     this.bill.forEach((item, index) => {
-      if (item.added) this.$set(this.bill[index], "icon", "mdi-delete")
-      else this.$set(this.bill[index], "icon", item.shared ? "mdi-arrow-right" : "mdi-arrow-left")
-    })
+      if (item.added) this.$set(this.bill[index], "icon", "mdi-delete");
+      else
+        this.$set(
+          this.bill[index],
+          "icon",
+          item.shared ? "mdi-arrow-right" : "mdi-arrow-left"
+        );
+    });
   },
 
   computed: {
     billShared() {
-      return this.bill.filter(item => item.shared)
+      return this.bill.filter(item => item.shared);
     },
     billUnshared() {
-      return this.bill.filter(item => !item.shared)
+      return this.bill.filter(item => !item.shared);
     }
   },
 
