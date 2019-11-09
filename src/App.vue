@@ -17,7 +17,7 @@
           height="50"
         />
 
-        <h1>Laxury Insight</h1>
+        <h1 class="d-none d-sm-flex">Laxury Insight</h1>
       </div>
 
       <v-spacer></v-spacer>
