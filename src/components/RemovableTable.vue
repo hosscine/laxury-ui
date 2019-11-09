@@ -4,8 +4,8 @@
       <v-slot name="top"></v-slot>
     </template>
 
-    <template v-slot:item.action="{ item }">
-      <v-icon small class="mr-2" @click="editItem(item)">move</v-icon>
+    <template v-slot:item.action="{ item }">      
+      <v-icon class="pl-2">{{icons}}</v-icon>
     </template>
   </v-data-table>
 </template>
@@ -14,8 +14,9 @@
 <script>
 export default {
   props: {
-    headers: Object,
-    items: Array
+    headers: Array,
+    items: Array,
+    icons: String
   },
   data: () => ({
     dialog: false,

@@ -8,6 +8,7 @@
           v-bind:items="billShared"
           sort-by="amount"
           class="elevation-1"
+          icons="mdi-arrow-right"
         >
           <template v-slot:top></template>
         </RemovableTable>
@@ -18,6 +19,7 @@
           v-bind:items="billUnshared"
           sort-by="amount"
           class="elevation-1"
+          icons="mdi-arrow-left"
         >
           <template v-slot:top></template>
         </RemovableTable>
