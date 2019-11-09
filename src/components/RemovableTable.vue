@@ -5,7 +5,9 @@
     </template>
 
     <template v-slot:item.action="{ item }">
-      <v-icon class="pl-2">{{item.icon}}</v-icon>
+      <v-btn icon class="pr-2">
+        <v-icon class="pl-2">{{item.icon}}</v-icon>
+      </v-btn>
     </template>
   </v-data-table>
 </template>
