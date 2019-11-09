@@ -118,6 +118,9 @@ export default {
     },
     billUnshared() {
       return this.bill.filter(item => !item.shared);
+    },
+    computedIcons() {
+      return ["mdi-arrow-left", "mdi-arrow-left", "mdi-arrow-left", "mdi-delete", "mdi-arrow-left"]
     }
   },
 

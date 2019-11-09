@@ -4,6 +4,7 @@
       app
       color="black"
       dark
+      height="60px"
     >
       <div class="d-flex align-center">
         <v-img
@@ -12,7 +13,8 @@
           contain
           src="https://pbs.twimg.com/profile_images/938212111615893504/CWOlo6Q6_400x400.jpg"
           transition="scale-transition"
-          width="60"
+          width="50"
+          height="50"
         />
 
         <h1>Laxury Insight</h1>
