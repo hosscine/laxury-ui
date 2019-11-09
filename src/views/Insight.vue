@@ -5,7 +5,7 @@
       <v-col class="pr-0">
         <RemovableTable
           v-bind:headers="headers"
-          v-bind:items="items"
+          v-bind:items="bill"
           sort-by="amount"
           class="elevation-1"
         >
@@ -15,7 +15,7 @@
       <v-col class="pl-0">
         <RemovableTable
           v-bind:headers="headers"
-          v-bind:items="items"
+          v-bind:items="bill"
           sort-by="amount"
           class="elevation-1"
         >
