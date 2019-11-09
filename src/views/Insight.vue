@@ -5,7 +5,7 @@
       <v-col class="pr-0">
         <RemovableTable
           v-bind:headers="headers"
-          v-bind:items="bill"
+          v-bind:items="billShared"
           sort-by="amount"
           class="elevation-1"
         >
@@ -15,7 +15,7 @@
       <v-col class="pl-0">
         <RemovableTable
           v-bind:headers="headers"
-          v-bind:items="bill"
+          v-bind:items="billUnshared"
           sort-by="amount"
           class="elevation-1"
         >
@@ -50,57 +50,74 @@ export default {
       {
         name: "Frozen Yogurt",
         amount: 159,
-        date: 24
+        date: 24,
+        shared: true
       },
       {
         name: "Ice cream sandwich",
         amount: 237,
-        date: 37
+        date: 37,
+        shared: true
       },
       {
         name: "Eclair",
         amount: 262,
-        date: 23
+        date: 23,
+        shared: true
       },
       {
         name: "Cupcake",
         amount: 305,
-        date: 67
+        date: 67,
+        shared: true
       },
       {
         name: "Gingerbread",
         amount: 356,
-        date: 49
+        date: 49,
+        shared: true
       },
       {
         name: "Jelly bean",
         amount: 375,
-        date: 94
+        date: 94,
+        shared: false
       },
       {
         name: "Lollipop",
         amount: 392,
-        date: 98
+        date: 98,
+        shared: false
       },
       {
         name: "Honeycomb",
         amount: 408,
-        date: 87
+        date: 87,
+        shared: false
       },
       {
         name: "Donut",
         amount: 452,
-        date: 51
+        date: 51,
+        shared: false
       },
       {
         name: "KitKat",
         amount: 518,
-        date: 65
+        date: 65,
+        shared: false
       }
     ]
   }),
 
-  computed: {},
+  computed: {
+    billShared() {
+      return this.bill.filter(item => item.shared);
+    },
+    billUnshared() {
+      return this.bill.filter(item => !item.shared);
+    }
+  },
 
   methods: {}
 };
