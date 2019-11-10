@@ -1,22 +1,28 @@
 <template>
-  <v-container class="pb-0">
-    <v-app-bar class="pa-0 elevation-2" dense>
-      <v-row>
-        <v-col sm="4" md="6">
-          <v-select class="pt-5" prepend-inner-icon="mdi-calendar-month"></v-select>
-        </v-col>
-        <v-col>
+  <!-- <v-select prepend-inner-icon="mdi-calendar-month" :items="billMonths"></v-select> -->
+  <v-container fluid>
+    <v-row align="center">
+      <v-col cols="12" class="py-0">
+        <v-toolbar class="elevation-2">
+          <v-col cols="6">
+            <v-select hide-details :items="billMonths" prepend-inner-icon="mdi-calendar-month"></v-select>
+          </v-col>
+          <v-col cols="6" class="d-flex justify-end align-center">
+            <span class="overline d-none d-sm-flex">Current Payment per Person</span>
+            <v-chip outlined label active="false" class="ml-2">
+              <v-icon left color="grey darken-1">mdi-cash</v-icon>
+              <span class="font-weight-light">¥{{singlePayment}}</span>
+            </v-chip>
+          </v-col>
+        </v-toolbar>
+      </v-col>
 
-        </v-col>
-      </v-row>
-    </v-app-bar>
-    <v-row>
-      <v-col class="pr-0 pt-0">
+      <v-col cols="6" class="pr-0 pt-0">
         <RemovableTable v-bind:headers="headers" v-bind:items="billShared" sort-by="amount">
           <template v-slot:top></template>
         </RemovableTable>
       </v-col>
-      <v-col class="pl-0 pt-0">
+      <v-col cols="6" class="pl-0 pt-0">
         <RemovableTable v-bind:headers="headers" v-bind:items="billUnshared" sort-by="amount">
           <template v-slot:top></template>
         </RemovableTable>
@@ -34,6 +40,7 @@ export default {
   },
 
   data: () => ({
+    billMonths: ["2019/10", "2019/11"],
     headers: [
       {
         text: "Names",
@@ -129,6 +136,9 @@ export default {
     },
     billUnshared() {
       return this.bill.filter(item => !item.shared);
+    },
+    singlePayment() {
+      return this.billShared.reduce((a, item) => a + item.amount, 0);
     }
   },
 
