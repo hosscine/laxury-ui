@@ -1,7 +1,7 @@
 <template>
   <v-data-table v-bind:headers="headers" v-bind:items="items" class="elevation-1">
     <template v-slot:top>
-      <v-slot name="top"></v-slot>
+      <slot name="top"/>
     </template>
 
     <template v-slot:item.action="{ item }">

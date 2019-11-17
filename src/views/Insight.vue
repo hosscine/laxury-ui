@@ -13,13 +13,17 @@
       </v-col>
 
       <v-col cols="6" class="pr-0 pt-0">
-        <RemovableTable v-bind:headers="headers" v-bind:items="billShared" sort-by="amount">
-          <template v-slot:top></template>
+        <RemovableTable :headers="headers" :items="billShared" sort-by="amount">
+          <template v-slot:top>
+            <v-toolbar dense class="elevation-2"></v-toolbar>
+          </template>
         </RemovableTable>
       </v-col>
       <v-col cols="6" class="pl-0 pt-0">
-        <RemovableTable v-bind:headers="headers" v-bind:items="billUnshared" sort-by="amount">
-          <template v-slot:top></template>
+        <RemovableTable :headers="headers" :items="billUnshared" sort-by="amount">
+          <template v-slot:top>
+            <v-toolbar dense class="elevation-2"></v-toolbar>
+          </template>
         </RemovableTable>
       </v-col>
     </v-row>

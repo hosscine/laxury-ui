@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar class="elevation-2">
+  <v-toolbar>
     <v-row>
       <v-col cols="6" sm="4">
         <v-select hide-details :items="items" prepend-inner-icon="mdi-calendar-month"></v-select>
