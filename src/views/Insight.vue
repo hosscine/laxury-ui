@@ -15,14 +15,34 @@
       <v-col cols="6" class="pr-0 pt-0">
         <RemovableTable :headers="headers" :items="billShared" sort-by="amount">
           <template v-slot:top>
-            <v-toolbar dense class="elevation-2"></v-toolbar>
+            <v-toolbar dense class="elevation-2">
+              <v-row justify="start" class="align-center">
+                <v-col cols="4" sm="2" lg="1">
+                  <v-img :src="require('@/assets/friendship.svg')" contain height="30"></v-img>
+                </v-col>
+                <v-col>
+                  Shared
+                  <span class="d-none d-sm-inline">Expense</span>
+                </v-col>
+              </v-row>
+            </v-toolbar>
           </template>
         </RemovableTable>
       </v-col>
       <v-col cols="6" class="pl-0 pt-0">
         <RemovableTable :headers="headers" :items="billUnshared" sort-by="amount">
           <template v-slot:top>
-            <v-toolbar dense class="elevation-2"></v-toolbar>
+            <v-toolbar dense class="elevation-2">
+              <v-row justify="start" class="align-center">
+                <v-col cols="4" sm="2" lg="1">
+                  <v-img :src="require('@/assets/boy.svg')" contain height="30"></v-img>
+                </v-col>
+                <v-col>
+                  Personal
+                  <span class="d-none d-sm-inline">Expense</span>
+                </v-col>
+              </v-row>
+            </v-toolbar>
           </template>
         </RemovableTable>
       </v-col>
