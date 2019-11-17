@@ -3,18 +3,13 @@
   <v-container fluid>
     <v-row align="center">
       <v-col cols="12" class="py-0">
-        <v-toolbar class="elevation-2">
-          <v-col cols="6">
-            <v-select hide-details :items="billMonths" prepend-inner-icon="mdi-calendar-month"></v-select>
-          </v-col>
-          <v-col cols="6" class="d-flex justify-end align-center">
-            <span class="overline d-none d-sm-flex">Current Payment per Person</span>
-            <v-chip outlined label active="false" class="ml-2">
-              <v-icon left color="grey darken-1">mdi-cash</v-icon>
-              <span class="font-weight-light">¥{{singlePayment}}</span>
-            </v-chip>
-          </v-col>
-        </v-toolbar>
+        <SelectItemToolbar
+          :items="billMonths"
+          itemsIcon="mdi-calendar-month"
+          :cardText="'¥ ' + String(singlePayment)"
+          cardGuideText="Payment for each Person"
+          cardIcon="mdi-cash"
+        />
       </v-col>
 
       <v-col cols="6" class="pr-0 pt-0">
@@ -33,10 +28,12 @@
 
 <script>
 import RemovableTable from "@/components/RemovableTable.vue";
+import SelectItemToolbar from "@/components/SelectItemToolbar.vue";
 
 export default {
   components: {
-    RemovableTable
+    RemovableTable,
+    SelectItemToolbar
   },
 
   data: () => ({
