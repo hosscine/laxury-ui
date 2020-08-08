@@ -163,6 +163,17 @@ export default {
     }
   },
 
+mounted () {
+    // const headers = {
+    //     'Content-Type': 'application/json;charset=UTF-8',
+    //     'Access-Control-Allow-Origin': '*',
+    // }
+
+    this.axios
+      .get("http://localhost:7531/bill")
+      .then(res => (this.bill = res))
+  },
+
   methods: {}
 };
 </script>
